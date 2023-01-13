@@ -23,6 +23,14 @@ export class Supply{
       this.operateCrane(move,from,to)
     })
   }
+
+  getTopOfStacks(): string{
+    let result: string[] = []
+    this.stacks.forEach(stack =>{
+        result.push(stack.pop()!)
+    })
+    return result.join('')
+  }
 }
 
 let testData = new Map<number,string[]>([
@@ -31,8 +39,4 @@ let testData = new Map<number,string[]>([
   [3,['P']],
 ])
 const testSupply = new Supply(testData)
-console.log(testSupply.stacks)
-testSupply.operateCrane(1,2,1)
-console.log(testSupply.stacks)
-testSupply.operateCrane(3,1,3)
-console.log(testSupply.stacks)
+console.log(testSupply.getTopOfStacks())

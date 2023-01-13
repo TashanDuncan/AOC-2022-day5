@@ -22,6 +22,13 @@ class Supply {
             this.operateCrane(move, from, to);
         });
     }
+    getTopOfStacks() {
+        let result = [];
+        this.stacks.forEach(stack => {
+            result.push(stack.pop());
+        });
+        return result.join('');
+    }
 }
 exports.Supply = Supply;
 let testData = new Map([
@@ -30,8 +37,4 @@ let testData = new Map([
     [3, ['P']],
 ]);
 const testSupply = new Supply(testData);
-console.log(testSupply.stacks);
-testSupply.operateCrane(1, 2, 1);
-console.log(testSupply.stacks);
-testSupply.operateCrane(3, 1, 3);
-console.log(testSupply.stacks);
+console.log(testSupply.getTopOfStacks());
