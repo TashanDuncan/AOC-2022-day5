@@ -1,12 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Supply = void 0;
-const fs = require('fs');
-const inst = fs.readFileSync(__dirname + '/test-instructions.txt').toString().split("\n").map((element) => {
-    const result = element.split(' ');
-    return [result[1], result[3], result[5]];
-});
-inst;
 class Supply {
     constructor(stacks) {
         this.stacks = stacks;
@@ -36,10 +30,3 @@ class Supply {
     }
 }
 exports.Supply = Supply;
-let testData = new Map([
-    [1, ['Z', 'N']],
-    [2, ['M', 'C', 'D']],
-    [3, ['P']],
-]);
-const testSupply = new Supply(testData);
-console.log(testSupply.getTopOfStacks());
