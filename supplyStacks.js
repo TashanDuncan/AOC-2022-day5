@@ -2,6 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Supply = void 0;
 const fs = require('fs');
+const inst = fs.readFileSync(__dirname + '/test-instructions.txt').toString().split("\n").map((element) => {
+    const result = element.split(' ');
+    return [result[1], result[3], result[5]];
+});
+inst;
 class Supply {
     constructor(stacks) {
         this.stacks = stacks;
@@ -9,8 +14,8 @@ class Supply {
     operateCrane(move, from, to) {
         const stackMovingFrom = this.stacks.get(from);
         const stackMovingTo = this.stacks.get(to);
-        const movedCrates = stackMovingFrom.splice(stackMovingFrom.length - move, move).reverse();
-        stackMovingTo === null || stackMovingTo === void 0 ? void 0 : stackMovingTo.push(...movedCrates);
+        const movedCrates = stackMovingFrom === null || stackMovingFrom === void 0 ? void 0 : stackMovingFrom.splice(stackMovingFrom.length - move, move).reverse();
+        stackMovingTo.push(...movedCrates);
         this.stacks.set(from, stackMovingFrom);
         this.stacks.set(to, stackMovingTo);
     }
