@@ -1,7 +1,9 @@
 import { readFileSync } from "fs";
 import { Supply } from "./supplyStacks";
 
-const testInstructions = readFileSync(__dirname + 'test-instructions.txt').toString().split("\n")
+const testInstructions = readFileSync(__dirname + '/test-instructions.txt').toString().split("\n").map((element: string) => {
+  return element.replace(/\D/g,'').split('').map((num:string) => Number(num))
+});
 describe('supply Stacks part 1', () => {
   let testData: Map<number, string[]>
   let testSupply: Supply

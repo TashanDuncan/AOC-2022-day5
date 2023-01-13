@@ -1,4 +1,4 @@
-
+const fs = require('fs');
 export class Supply{
   stacks: Map<number, string[]>
 
@@ -13,6 +13,15 @@ export class Supply{
     stackMovingTo?.push(...movedCrates)
     this.stacks.set(from, stackMovingFrom)
     this.stacks.set(to, stackMovingTo)
+  }
+
+  followCraneInstructions(instructions: number[][]){
+    instructions.forEach(instruction =>{
+      const move = instruction[0]
+      const from = instruction[1]
+      const to = instruction[2]
+      this.operateCrane(move,from,to)
+    })
   }
 }
 

@@ -2,7 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const supplyStacks_1 = require("./supplyStacks");
-const testInstructions = (0, fs_1.readFileSync)(__dirname + 'test-instructions.txt').toString().split("\n");
+const testInstructions = (0, fs_1.readFileSync)(__dirname + '/test-instructions.txt').toString().split("\n").map((element) => {
+    return element.replace(/\D/g, '').split('').map((num) => Number(num));
+});
 describe('supply Stacks part 1', () => {
     let testData;
     let testSupply;
