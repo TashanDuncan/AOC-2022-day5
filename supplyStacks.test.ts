@@ -29,4 +29,16 @@ describe('supply Stacks part 1', () => {
     ])
     expect(testSupply.stacks).toEqual(testData)
   });
+
+  it('should complete multiple crane operations', () => {
+
+    testSupply.operateCrane(1, 2 , 1)
+    testSupply.operateCrane(3, 1 , 3)
+    testData = new Map<number,string[]>([
+      [1,[]],
+      [2,['M','C']],
+      [3,['P','D','N','Z']],
+    ])
+    expect(testSupply.stacks).toEqual(testData)
+  });
 });
