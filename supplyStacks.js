@@ -5,5 +5,7 @@ class Supply {
     constructor(stacks) {
         this.stacks = stacks;
     }
+    operateCrane(move, from, to) {
+    }
 }
 exports.Supply = Supply;

@@ -5,4 +5,8 @@ export class Supply{
   constructor(stacks: Map<number, string[]>) {
     this.stacks = stacks
   }
+
+  operateCrane(move:number, from:number, to:number){
+    
+  }
 }
