@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const fs_1 = require("fs");
 const supplyStacks_1 = require("./supplyStacks");
+const testInstructions = (0, fs_1.readFileSync)(__dirname + 'test-instructions.txt').toString().split("\n");
 describe('supply Stacks part 1', () => {
     let testData;
     let testSupply;
@@ -33,6 +35,15 @@ describe('supply Stacks part 1', () => {
         testData = new Map([
             [1, []],
             [2, ['M', 'C']],
+            [3, ['P', 'D', 'N', 'Z']],
+        ]);
+        expect(testSupply.stacks).toEqual(testData);
+    });
+    it('should read test instructions to operate crane', () => {
+        testSupply.followCraneInstructions(testInstructions);
+        testData = new Map([
+            [1, ['C']],
+            [2, ['M']],
             [3, ['P', 'D', 'N', 'Z']],
         ]);
         expect(testSupply.stacks).toEqual(testData);

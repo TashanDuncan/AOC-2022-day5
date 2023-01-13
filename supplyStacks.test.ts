@@ -1,5 +1,7 @@
 import { readFileSync } from "fs";
 import { Supply } from "./supplyStacks";
+
+const testInstructions = readFileSync(__dirname + 'test-instructions.txt').toString().split("\n")
 describe('supply Stacks part 1', () => {
   let testData: Map<number, string[]>
   let testSupply: Supply
@@ -37,6 +39,17 @@ describe('supply Stacks part 1', () => {
     testData = new Map<number,string[]>([
       [1,[]],
       [2,['M','C']],
+      [3,['P','D','N','Z']],
+    ])
+    expect(testSupply.stacks).toEqual(testData)
+  });
+
+  it('should read test instructions to operate crane', () => {
+
+    testSupply.followCraneInstructions(testInstructions)
+    testData = new Map<number,string[]>([
+      [1,['C']],
+      [2,['M']],
       [3,['P','D','N','Z']],
     ])
     expect(testSupply.stacks).toEqual(testData)
