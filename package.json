@@ -1,0 +1,29 @@
+{
+  "name": "7",
+  "version": "1.0.0",
+  "description": "[https://adventofcode.com/2022/day/7](https://adventofcode.com/2022/day/7)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config ./jest.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TashanDuncan/fundamentals-2-assesment-kata.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TashanDuncan/fundamentals-2-assesment-kata/issues"
+  },
+  "homepage": "https://github.com/TashanDuncan/fundamentals-2-assesment-kata#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@types/jest": "^29.2.5",
+    "@types/node": "^16.11.24",
+    "babel-jest": "^27.5.1",
+    "core-js": "^3.21.0",
+    "eslint": "^8.9.0",
+    "jest": "^27.5.1",
+    "typescript": "^4.5.4"
+  }
+}
