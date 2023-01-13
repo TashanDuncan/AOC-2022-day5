@@ -50,4 +50,7 @@ describe('supply Stacks part 1', () => {
         ]);
         expect(testSupply.stacks).toEqual(testData);
     });
+    it('should return the top of each stack', () => {
+        expect(testSupply.getTopOfStacks()).toEqual('NDP');
+    });
 });
