@@ -8,7 +8,7 @@ class Supply {
     operateCrane(move, from, to) {
         const stackMovingFrom = this.stacks.get(from);
         const stackMovingTo = this.stacks.get(to);
-        const movedCrates = stackMovingFrom.splice(stackMovingFrom.length - 1, move);
+        const movedCrates = stackMovingFrom.splice(stackMovingFrom.length - move, move).reverse();
         stackMovingTo === null || stackMovingTo === void 0 ? void 0 : stackMovingTo.push(...movedCrates);
         this.stacks.set(from, stackMovingFrom);
         this.stacks.set(to, stackMovingTo);
@@ -23,4 +23,6 @@ let testData = new Map([
 const testSupply = new Supply(testData);
 console.log(testSupply.stacks);
 testSupply.operateCrane(1, 2, 1);
+console.log(testSupply.stacks);
+testSupply.operateCrane(3, 1, 3);
 console.log(testSupply.stacks);

@@ -9,7 +9,7 @@ export class Supply{
   operateCrane(move:number, from:number, to:number){
     const stackMovingFrom = this.stacks.get(from)!
     const stackMovingTo = this.stacks.get(to)!
-    const movedCrates = stackMovingFrom.splice(stackMovingFrom.length - 1, move)
+    const movedCrates = stackMovingFrom.splice(stackMovingFrom.length - move, move).reverse()
     stackMovingTo?.push(...movedCrates)
     this.stacks.set(from, stackMovingFrom)
     this.stacks.set(to, stackMovingTo)
@@ -24,4 +24,6 @@ let testData = new Map<number,string[]>([
 const testSupply = new Supply(testData)
 console.log(testSupply.stacks)
 testSupply.operateCrane(1,2,1)
+console.log(testSupply.stacks)
+testSupply.operateCrane(3,1,3)
 console.log(testSupply.stacks)
